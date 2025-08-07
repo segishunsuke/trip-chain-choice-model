@@ -62,6 +62,7 @@ python setup.py build_ext --inplace
 1列目は項目名、2列目は設定値です。
 項目名の順序は固定されており、変更してはいけません。
 
+| --- | --- |
 | Number of places | 10 |
 | Number of ports | 2 |
 | Shift parameter of Poisson likelihood | 0.0001 |
