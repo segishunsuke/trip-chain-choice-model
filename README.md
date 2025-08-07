@@ -164,4 +164,20 @@ $`\varepsilon_{k}`$と$`\xi_{k, l}`$は，平均が0の独立な正規分布に�
 
 パラメータの推定を行う場合も設定ファイルは必須です．最適化の初期値として，記載されたパラメータ値が利用されます．
 
+## プログラムの実行
+
+プログラムの実行方法は以下の通りです。
+`trip_chain_simulator.pyx`の置かれているフォルダをカレントディレクトリにして下さい。
+まず、`trip_chain_simulator`をインポートします。
+
+```
+import trip_chain_simulator
+```
+
+次に、`trip_chain_simulator`ライブラリの`Trip_chain_simulator`クラスのオブジェクトを作成します。
+このオブジェクトを用いて推定や予測を行います。
+```
+simulator = trip_chain_simulator.Trip_chain_simulator()
+```
+
 
