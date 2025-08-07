@@ -15,19 +15,21 @@
 pip install Cython
 ```
 
-Windows環境の場合はコンパイラ（Visual Studio）の導入も必要です。コンパイラは無償で利用可能です。
+### Windows環境の注意点
 
-まず、以下の手順でVisual Studio関連ツールをインストールして下さい。
+Windows環境でCythonプログラムをコンパイルするには，C/C++のコンパイラ（Visual Studio）の導入が必要です。コンパイラは無償で利用可能です。
 
-1. Visual Studio Community のインストール
+以下の手順に従って，必要な機能をインストールしてください。
 
-- [Microsoftのサイト](https://visualstudio.microsoft.com/downloads/)にアクセスし、「Visual Studio Community」をダウンロードします。
-- インストーラを起動し、「Python開発」の機能をインストールして下さい。
+1. Visual Studio Communityのインストール
 
-2. Build Tools for Visual Studio のインストール
+- [Microsoftの公式サイト](https://visualstudio.microsoft.com/downloads/)にアクセスし、「Visual Studio Community」をダウンロードします。
+- インストーラを起動し，「Python開発」を選択してインストールします。
 
-- 同じページの「Tools for Visual Studio」のセクションから「Build Tools for Visual Studio」をダウンロードします。
-- インストーラを起動し、「C++によるデスクトップ開発」の機能をインストールして下さい。
+2. Build Tools for Visual Studioのインストール
+
+- [同じページ](https://visualstudio.microsoft.com/downloads/)の「Tools for Visual Studio」セクションから「Build Tools for Visual Studio」をダウンロードします。
+- インストーラを起動し，「C++によるデスクトップ開発」を選択してインストールします。
 
 
 
