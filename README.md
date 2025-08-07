@@ -35,11 +35,11 @@ Windows環境でCythonプログラムをコンパイルするには，C/C++の�
 
 [codesフォルダ](./codes)内のファイルを全て同一のフォルダにダウンロードして下さい。ファイルの内容は以下の通りです。
 
-- `trip_chain_simulator.pyx`, `trip_chain_simulator.pxd`：観光周遊行動モデルを扱うライブラリの本体です。
-- `geneticr.pyx`, `geneticr.pxd`：実数値の遺伝的アルゴリズムによる関数最適化を行うライブラリです。
-- `mt19937ar.c`：メルセンヌツイスタによる乱数生成を行うCコードです。[開発者により公開されているコード](https://www.math.sci.hiroshima-u.ac.jp/m-mat/MT/MT2002/mt19937ar.html)を編集したものです。
-- `setup.py`：コンパイルに利用するPythonファイルです。
-- `execute.py`：`trip_chain_simulator`ライブラリの利用例が載っているPythonファイルです。
+- `trip_chain_simulator.pyx`, `trip_chain_simulator.pxd`: 観光周遊行動モデルを扱うライブラリの本体です。
+- `geneticr.pyx`, `geneticr.pxd`: 実数値の遺伝的アルゴリズムによる関数最適化を行うライブラリです。
+- `mt19937ar.c`: メルセンヌツイスタによる乱数生成を行うCコードです。[開発者により公開されているコード](https://www.math.sci.hiroshima-u.ac.jp/m-mat/MT/MT2002/mt19937ar.html)を編集したものです。
+- `setup.py`: コンパイルに利用するPythonファイルです。
+- `execute.py`: `trip_chain_simulator`ライブラリの利用例が載っているPythonファイルです。
 
 ファイルを全てダウンロードしたら、以下のコマンドを実行してプログラムをコンパイルして下さい。
 
@@ -129,3 +129,16 @@ OD間旅行費用のデータファイルは、Place・Port間の旅行費用を
 | alpha\[K-1\] | -0.5 |
 | beta | 5.0 |
 | sigma_t | 0.3 |
+
+このプログラムでは、個々の旅行者がトリップチェインから得られる効用は以下の式により表されます。
+
+```math
+\sum_{j=1}^{n} \left( \alpha_{a_j} + \varepsilon_{a_j} \right) - \beta \sum_{j=0}^n \bar{c}_{a_j a_{j+1}} (1 + \xi_{a_j a_{j+1}})
+```
+
+各項目の意味は以下の通りです。
+
+- `alpha\[k\]`: IDがkのPlaceの訪問効用の期待値（確定効用）です。Placeの訪問効用は旅行者ごとに独立な正規分布に従い、その標準偏差は1です。
+- `beta`: 旅行費用抵抗係数です。
+- `sigma_t`: トリップチェインの起点・終点となることができる場所（空港など）の数です。これらの場所は旅行者の訪問の対象となることはできません。
+- `Shift parameter of Poisson likelihood`: ポアソン疑似尤度を評価する際に、ゼロ予測値を避けるための補正項。通常は0.0001に設定することを推奨します。
