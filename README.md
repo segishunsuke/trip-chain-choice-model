@@ -136,7 +136,7 @@ OD間旅行費用のデータファイルは、Place・Port間の旅行費用を
 \max_{n, x_1, x_2, ..., x_n } \sum_{j=1}^{n} \left( \alpha_{x_j} + \varepsilon_{x_j} \right) - \beta \sum_{j=0}^n \bar{c}_{x_j, x_{j+1}} \left( 1 + \xi_{x_j, x_{j+1}} \right)
 ```
 ```math
-\mathrm{s.t.} \: x_0 = \mathrm{port \: of \entrance}, x_{n+1} = \mathrm{port \: of \departure}
+\mathrm{s.t.} \: x_0 = \mathrm{port \: of \: entrance}, x_{n+1} = \mathrm{port \: of \: departure}
 ```
 
 各項目の意味は以下の通りです。
