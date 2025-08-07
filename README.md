@@ -21,7 +21,7 @@ Windows環境の場合はコンパイラ（Visual Studio）の導入も必要です。コンパイラは無償
 
 1. Visual Studio Community のインストール
 
-- Microsoftのサイト（https://visualstudio.microsoft.com/downloads/）にアクセスし、「Visual Studio Community」をダウンロードします。
+- [Microsoftのサイト](https://visualstudio.microsoft.com/downloads/)にアクセスし、「Visual Studio Community」をダウンロードします。
 - インストーラを起動し、「Python開発」の機能をインストールして下さい。
 
 2. Build Tools for Visual Studio のインストール
