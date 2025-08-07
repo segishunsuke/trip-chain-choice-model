@@ -105,8 +105,8 @@ OD間旅行費用のデータファイルは、Place・Port間の旅行費用を
 
 | $`\cdots`$ | trip chain | $`\cdots`$ |
 | :---: | :---: | :---: |
-| $`\cdots`$ | \[10 4 10 \] | $`\cdots`$ |
-| $`\cdots`$ | \[10 3 6 10 \] | $`\cdots`$ |
+| $`\cdots`$ | \[10 4 10\] | $`\cdots`$ |
+| $`\cdots`$ | \[10 3 6 10\] | $`\cdots`$ |
 | $`\cdots`$ | \[10 2 4 7 11\] | $`\cdots`$ |
 | $`\vdots`$ | $`\vdots`$ | $`\vdots`$ |
 
