@@ -130,10 +130,10 @@ OD間旅行費用のデータファイルは、Place・Port間の旅行費用を
 | beta | 5.0 |
 | sigma_t | 0.3 |
 
-このプログラムでは、個々の旅行者がトリップチェインから得られる効用は以下の式により表されます。
+このプログラムでは、個々の旅行者は以下の効用最大化問題を解いてトリップチェインを選択すると仮定しています。
 
 ```math
-\sum_{j=1}^{n} \left( \alpha_{x_j} + \varepsilon_{x_j} \right) - \beta \sum_{j=0}^n \bar{c}_{x_j, x_{j+1}} \left( 1 + \xi_{x_j, x_{j+1}} \right)
+\max_{n, x_1, ..., x_n } \sum_{j=1}^{n} \left( \alpha_{x_j} + \varepsilon_{x_j} \right) - \beta \sum_{j=0}^n \bar{c}_{x_j, x_{j+1}} \left( 1 + \xi_{x_j, x_{j+1}} \right)
 ```
 
 各項目の意味は以下の通りです。
