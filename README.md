@@ -75,7 +75,7 @@ python setup.py build_ext --inplace
 - `Shift parameter of Poisson likelihood`: ポアソン疑似尤度を評価する際に、ゼロ予測値を避けるための補正項。通常は0.0001に設定することを推奨します。
 - `OD cost normalization`: 旅行費用の単位が分析に影響を与えることを防ぐため、OD旅行費用はこの設定値で除されて基準化されたうえで、プログラムに利用されます。この設定値にゼロを指定すると、OD旅行費用の95%タイル値が基準化に使われます。
 
-Number of placesを$K$、Number of portsを$M$とするとき、各PlaceおよびPortには以下のIDが割り当てられます。
+Number of placesを$`K`$、Number of portsを$`M`$とするとき、各PlaceおよびPortには以下のIDが割り当てられます。
 
 - Place: 0, 1, 2, ..., $`K - 1`$
 - Port: $`K`$, $`K + 1`$, ..., $`K + M - 1`$
