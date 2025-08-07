@@ -146,7 +146,7 @@ x_0 = \mathrm{port \: of \: entrance}, x_{n+1} = \mathrm{port \: of \: departure
 x_j \in \{ 0, \cdots, K - 1 \} \quad (1 \le j \le n)
 ```
 ```math
-x_j \neq x_{r} \quad (1 \le j \le n, \: 1 \le r \le n \: j \neq r)
+x_j \neq x_{r} \quad (1 \le j \le n, \: 1 \le r \le n, \: j \neq r)
 ```
 
 ここで，$`n`$は訪問する観光地の数，$`x_j`$は$`j`$番目に訪問する観光地のID，$`\alpha_{k} + \varepsilon_{k}`$は観光地$`k`$の訪問効用，$`\bar{c}_{k, l} ( 1 + \xi_{k, l} )`$は$`kl`$間の旅行費用です．
