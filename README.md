@@ -1,96 +1,96 @@
-���̃��|�W�g���ł́C�g���b�v�`�F�C���S�̂̌��p���ő剻���闷�s�҂̈ӎv����𖾎��I�ɕ\�������C�ό����V�s�����f�����������߂̃v���O���������J���Ă��܂��B�g���b�v�`�F�C���̊ϑ��f�[�^��p�������f���̐����A���茋�ʂ𗘗p�����g���b�v�`�F�C���̗\�����s�����Ƃ��ł��܂��B
+﻿このリポジトリでは，トリップチェイン全体の効用を最大化する旅行者の意思決定を明示的に表現した，観光周遊行動モデルを扱うためのプログラムを公開しています。トリップチェインの観測データを用いたモデルの推定や、推定結果を利用したトリップチェインの予測を行うことができます。
 
-�v���O�����ɂ��Ă̖₢���킹�́C���L�̃��[���A�h���X�ɂ��肢���܂��D
+プログラムについての問い合わせは，下記のメールアドレスにお願いします．
 
 <img src="./assets/images/mail.png" width="200px">
 
 
-## Cython���C�u�����̃C���X�g�[��
+## Cythonライブラリのインストール
 
-���̃v���O������p����ɂ́CPython�������Cython���C�u�������K�v�ł��B
+このプログラムを用いるには，Python環境およびCythonライブラリが必要です。
 
-���g����Python����Cython���C�u�������C���X�g�[������Ă��Ȃ��ꍇ�́C�v�����v�g��ňȉ��̃R�}���h����͂��ăC���X�g�[�����s���ĉ������B
+お使いのPython環境にCythonライブラリがインストールされていない場合は，プロンプト上で以下のコマンドを入力してインストールを行って下さい。
 
 ```
 pip install Cython
 ```
 
-### Windows���̒��ӓ_
+### Windows環境の注意点
 
-Windows����Cython�v���O�������R���p�C������ɂ́CC/C++�̃R���p�C���iVisual Studio�j�̓������K�v�ł��B�R���p�C���͖����ŗ��p�\�ł��B
+Windows環境でCythonプログラムをコンパイルするには，C/C++のコンパイラ（Visual Studio）の導入が必要です。コンパイラは無償で利用可能です。
 
-�ȉ��̎菇�ɏ]���āC�K�v�ȋ@�\���C���X�g�[�����Ă��������B
+以下の手順に従って，必要な機能をインストールしてください。
 
-1. Visual Studio Community�̃C���X�g�[��
+1. Visual Studio Communityのインストール
 
-- [Microsoft�̌����T�C�g](https://visualstudio.microsoft.com/downloads/)�ɃA�N�Z�X���A�uVisual Studio Community�v���_�E�����[�h���܂��B
-- �C���X�g�[�����N�����C�uPython�J���v��I�����ăC���X�g�[�����܂��B
+- [Microsoftの公式サイト](https://visualstudio.microsoft.com/downloads/)にアクセスし、「Visual Studio Community」をダウンロードします。
+- インストーラを起動し，「Python開発」を選択してインストールします。
 
-2. Build Tools for Visual Studio�̃C���X�g�[��
+2. Build Tools for Visual Studioのインストール
 
-- [�����y�[�W](https://visualstudio.microsoft.com/downloads/)�́uTools for Visual Studio�v�Z�N�V��������uBuild Tools for Visual Studio�v���_�E�����[�h���܂��B
-- �C���X�g�[�����N�����C�uC++�ɂ��f�X�N�g�b�v�J���v��I�����ăC���X�g�[�����܂��B
+- [同じページ](https://visualstudio.microsoft.com/downloads/)の「Tools for Visual Studio」セクションから「Build Tools for Visual Studio」をダウンロードします。
+- インストーラを起動し，「C++によるデスクトップ開発」を選択してインストールします。
 
-## �v���O�����̃_�E�����[�h�ƃR���p�C��
+## プログラムのダウンロードとコンパイル
 
-[codes�t�H���_](./codes)���̃t�@�C����S�ē���̃t�H���_�Ƀ_�E�����[�h���ĉ������B�t�@�C���̓��e�͈ȉ��̒ʂ�ł��B
+[codesフォルダ](./codes)内のファイルを全て同一のフォルダにダウンロードして下さい。ファイルの内容は以下の通りです。
 
-- `trip_chain_simulator.pyx`, `trip_chain_simulator.pxd`�F�ό����V�s�����f�����������C�u�����̖{�̂ł��B
-- `geneticr.pyx`, `geneticr.pxd`�F�����l�̈�`�I�A���S���Y���ɂ��֐��œK�����s�����C�u�����ł��B
-- `mt19937ar.c`�F�����Z���k�c�C�X�^�ɂ�闐���������s��C�R�[�h�ł��B[�J���҂ɂ����J����Ă���R�[�h](https://www.math.sci.hiroshima-u.ac.jp/m-mat/MT/MT2002/mt19937ar.html)��ҏW�������̂ł��B
-- `setup.py`�F�R���p�C���ɗ��p����Python�t�@�C���ł��B
-- `execute.py`�F`trip_chain_simulator`���C�u�����̗��p�Ⴊ�ڂ��Ă���Python�t�@�C���ł��B
+- `trip_chain_simulator.pyx`, `trip_chain_simulator.pxd`：観光周遊行動モデルを扱うライブラリの本体です。
+- `geneticr.pyx`, `geneticr.pxd`：実数値の遺伝的アルゴリズムによる関数最適化を行うライブラリです。
+- `mt19937ar.c`：メルセンヌツイスタによる乱数生成を行うCコードです。[開発者により公開されているコード](https://www.math.sci.hiroshima-u.ac.jp/m-mat/MT/MT2002/mt19937ar.html)を編集したものです。
+- `setup.py`：コンパイルに利用するPythonファイルです。
+- `execute.py`：`trip_chain_simulator`ライブラリの利用例が載っているPythonファイルです。
 
-�t�@�C����S�ă_�E�����[�h������A�ȉ��̃R�}���h�����s���ăv���O�������R���p�C�����ĉ������B
+ファイルを全てダウンロードしたら、以下のコマンドを実行してプログラムをコンパイルして下さい。
 
 ```
 python setup.py build_ext --inplace
 ```
 
-�R���p�C���͈�x���s����΁A����ȍ~�͍s���K�v�͂���܂���B
+コンパイルは一度実行すれば、それ以降は行う必要はありません。
 
 
-## �ݒ�t�@�C���ƃf�[�^�t�@�C���̏���
+## 設定ファイルとデータファイルの準備
 
-`trip_chain_simulator`���C�u�������g���ɂ́A�ȉ��̐ݒ�t�@�C���ƃf�[�^�t�@�C������������K�v������܂��B�����̃t�@�C���͑S�ăJ���}��؂��CSV�t�@�C���Ƃ��ėp�ӂ����K�v������܂��B
-�e�X�g�f�[�^�p�̃t�@�C����[test-data�t�H���_](./test-data)�ɒu����Ă��܂��B
+`trip_chain_simulator`ライブラリを使うには、以下の設定ファイルとデータファイルを準備する必要があります。これらのファイルは全てカンマ区切りのCSVファイルとして用意される必要があります。
+テストデータ用のファイルは[test-dataフォルダ](./test-data)に置かれています。
 
-### �ݒ�t�@�C��
+### 設定ファイル
 
-�ݒ�t�@�C���͈ȉ��̕\�̂悤��4�s2���CSV�t�@�C���Ƃ��ėp�ӂ���܂��B
-[test-data�t�H���_](./test-data)����`input settings.csv`����ł��B
-1��ڂ͍��ږ��A2��ڂ͐ݒ�l�ł��B
-���ږ��̏����͌Œ肳��Ă���A�ύX���Ă͂����܂���B
+設定ファイルは以下の表のような4行2列のCSVファイルとして用意されます。
+[test-dataフォルダ](./test-data)内の`input settings.csv`が例です。
+1列目は項目名、2列目は設定値です。
+項目名の順序は固定されており、変更してはいけません。
 
 | Number of places | 10 |
 | Number of ports | 2 |
 | Shift parameter of Poisson likelihood | 0.0001 |
 | OD cost normalization | 0 |
 
-�e���ڂ̈Ӗ��͈ȉ��̒ʂ�ł��B
+各項目の意味は以下の通りです。
 
-- `Number of places`: ���s�҂��K��\�ȏꏊ�i�ό��n�j�̐��ł��B�����̏ꏊ�̓g���b�v�`�F�C���̋N�_�E�I�_�ɂȂ邱�Ƃ͂ł��܂���B
-- `Number of ports`: �g���b�v�`�F�C���̋N�_�E�I�_�ƂȂ邱�Ƃ��ł���ꏊ�i��`�Ȃǁj�̐��ł��B�����̏ꏊ�͗��s�҂̖K��̑ΏۂƂȂ邱�Ƃ͂ł��܂���B
-- `Shift parameter of Poisson likelihood`: �|�A�\���^���ޓx��]������ۂɁA�[���\���l������邽�߂̕␳���B�ʏ��0.0001�ɐݒ肷�邱�Ƃ𐄏����܂��B
-- `OD cost normalization`: ���s��p�̒P�ʂ����͂ɉe����^���邱�Ƃ�h�����߁AOD���s��p�͂��̐ݒ�l�ŏ�����Ċ�����ꂽ�����ŁA�v���O�����ɗ��p����܂��B���̐ݒ�l�Ƀ[�����w�肷��ƁAOD���s��p��95%�^�C���l������Ɏg���܂��B
+- `Number of places`: 旅行者が訪問可能な場所（観光地）の数です。これらの場所はトリップチェインの起点・終点になることはできません。
+- `Number of ports`: トリップチェインの起点・終点となることができる場所（空港など）の数です。これらの場所は旅行者の訪問の対象となることはできません。
+- `Shift parameter of Poisson likelihood`: ポアソン疑似尤度を評価する際に、ゼロ予測値を避けるための補正項。通常は0.0001に設定することを推奨します。
+- `OD cost normalization`: 旅行費用の単位が分析に影響を与えることを防ぐため、OD旅行費用はこの設定値で除されて基準化されたうえで、プログラムに利用されます。この設定値にゼロを指定すると、OD旅行費用の95%タイル値が基準化に使われます。
 
-### OD���s��p�̃f�[�^�t�@�C��
-
-
-
-
-�p�����[�^����̍ۂ�OD
-
-
-�g���b�v�`�F�C���̋N�_�E�I�_�ƂȂ邱�Ƃ��ł���ꏊ�i��`�Ȃǁj�̐��ł��B�����̏ꏊ�͗��s�҂̖K��̑ΏۂƂȂ邱�Ƃ͂ł��܂���B
+### OD旅行費用のデータファイル
 
 
 
 
+パラメータ推定の際にOD
 
 
-���̃v���O�������p����C�͏��W���̐ݒ���@���q�ׂ܂��D���̃v���O�����́C�L��`�P�f�ʂ����J���H�̕s�����v�Z�̊�b���ł���C
+トリップチェインの起点・終点となることができる場所（空港など）の数です。これらの場所は旅行者の訪問の対象となることはできません。
+
+
+
+
+
+
+このプログラムが用いる，河床標高の設定方法を述べます．このプログラムは，広矩形単断面を持つ開水路の不等流計算の基礎式である，
 ```math
 \frac{dH}{dx} + \frac{1}{2g} \frac{d}{dx} \left( \frac{Q}{Bh} \right)^2 + \frac{n^2 Q^2}{B^2 h^{10/3}} = 0
 ```
-��p���Ă��܂��D�����ŁC$`H`$�͐��ʕW��(m)��
+を用いています．ここで，$`H`$は水面標高(m)を
