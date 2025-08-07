@@ -140,7 +140,7 @@ OD間旅行費用のデータファイルは、観光地・空港間の旅行費
 \mathrm{s.t.} \: n \ge 1
 ```
 ```math
-\mathrm{s.t.} \: x_0 = \mathrm{port \: of \: entrance}, x_{n+1} = \mathrm{port \: of \: departure}
+x_0 = \mathrm{port \: of \: entrance}, x_{n+1} = \mathrm{port \: of \: departure}
 ```
 ```math
 x_j \in \{ 0, \cdots, K - 1 \} \quad (1 \le j \le n)
