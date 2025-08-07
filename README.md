@@ -145,7 +145,7 @@ OD間旅行費用のデータファイルは、Place・Port間の旅行費用を
 x_j \in \{ 0, \cdots, K - 1 \} \quad (1 \le j \le n)
 ```
 ```math
-x_j \neq x_{j'} (1 \le j \le n, 1 \le j' \le n)
+x_j \neq x_{l} \quad (1 \le j \le n, 1 \le l \le n)
 ```
 
 各項目の意味は以下の通りです。
