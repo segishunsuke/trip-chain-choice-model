@@ -31,6 +31,23 @@ Windows環境でCythonプログラムをコンパイルするには，C/C++のコンパイラ（Visual Stu
 - [同じページ](https://visualstudio.microsoft.com/downloads/)の「Tools for Visual Studio」セクションから「Build Tools for Visual Studio」をダウンロードします。
 - インストーラを起動し，「C++によるデスクトップ開発」を選択してインストールします。
 
+## プログラムのダウンロードとコンパイル
+
+[「codes」フォルダ](./codes)フォルダ内のファイルを全て同一のフォルダにダウンロードして下さい。ファイルの内容は以下の通りです。
+
+- `trip_chain_simulator.pyx`, `trip_chain_simulator.pxd`：観光周遊行動モデルを扱うライブラリの本体です。
+- `geneticr.pyx`, `geneticr.pxd`：実数値の遺伝的アルゴリズムによる関数最適化を行うライブラリです。
+- `mt19937ar.c`：メルセンヌツイスタによる乱数生成を行うCコードです。[開発者により公開されているコード](https://www.math.sci.hiroshima-u.ac.jp/m-mat/MT/MT2002/mt19937ar.html)を編集したものです。
+- `setup.py`：コンパイルに利用するPythonファイルです。
+- `execute.py`：`trip_chain_simulator`ライブラリの利用例が載っているPythonファイルです。
+
+ファイルを全てダウンロードしたら、以下のコマンドを実行してプログラムをコンパイルして下さい。
+
+```
+python setup.py build_ext --inplace
+```
+
+コンパイルは一度実行すれば、それ以降は行う必要はありません。
 
 
 
