@@ -133,7 +133,7 @@ OD間旅行費用のデータファイルは、Place・Port間の旅行費用を
 このプログラムでは、個々の旅行者がトリップチェインから得られる効用は以下の式により表されます。
 
 ```math
-\sum_{j=1}^{n} \left( \alpha_{a_j} + \varepsilon_{a_j} \right) - \beta \sum_{j=0}^n \bar{c}_{a_j, a_{j+1}} \left( 1 + \xi_{a_j, a_{j+1}} \right)
+\sum_{j=1}^{n} \left( \alpha_{x_j} + \varepsilon_{x_j} \right) - \beta \sum_{j=0}^n \bar{c}_{x_j, x_{j+1}} \left( 1 + \xi_{x_j, x_{j+1}} \right)
 ```
 
 各項目の意味は以下の通りです。
