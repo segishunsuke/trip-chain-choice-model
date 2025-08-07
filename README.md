@@ -138,10 +138,13 @@ OD間旅行費用のデータファイルは、Place・Port間の旅行費用を
 ```math
 \mathrm{s.t.} \: x_0 = \mathrm{port \: of \: entrance}, x_{n+1} = \mathrm{port \: of \: departure}
 ```
+```math
+x_j \in \{ 0, \cdots, K - 1 \} \quad (1 \le j \le n)
+```
 
 各項目の意味は以下の通りです。
 
-- `alpha\[k\]`: IDがkのPlaceの訪問効用の期待値（確定効用）です。Placeの訪問効用は旅行者ごとに独立な正規分布に従い、その標準偏差は1です。
+- `alpha[k]`: IDがkのPlaceの訪問効用の期待値（確定効用）です。Placeの訪問効用は旅行者ごとに独立な正規分布に従い、その標準偏差は1です。
 - `beta`: 旅行費用抵抗係数です。
 - `sigma_t`: トリップチェインの起点・終点となることができる場所（空港など）の数です。これらの場所は旅行者の訪問の対象となることはできません。
 - `Shift parameter of Poisson likelihood`: ポアソン疑似尤度を評価する際に、ゼロ予測値を避けるための補正項。通常は0.0001に設定することを推奨します。
