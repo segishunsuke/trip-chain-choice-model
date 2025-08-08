@@ -4,7 +4,10 @@
 上位ネストでは「出国vs周遊継続」の選択を行います．周遊継続の選択確率は以下の式で与えられます．
 
 ```math
-P_\mathrm{cont} = \frac { \exp \left( \gamma V_\mathrm{cont} \right) } { \exp \left( \gamma V_\mathrm{cont} \right) + \exp \left( - \gamma \beta \bar{c}_{\mathrm{current},\mathrm{departure}} \right)  }
+P_\mathrm{continue} = \frac { \exp \left( \gamma V_\mathrm{continue} \right) } { \exp \left( \gamma V_\mathrm{continue} \right) + \exp \left( - \gamma \beta \bar{c}_{\mathrm{current},\mathrm{departure}} \right)  }
+```
+```math
+V_\mathrm{continue} = \log \sum_{r \in K_{\mathrm{unvisited}}} \exp \left( \alpha_r - \beta \bar{c}_{\mathrm{cur},r} \right)
 ```
 
 ```math
