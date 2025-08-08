@@ -184,7 +184,7 @@ import trip_chain_simulator
 simulator = trip_chain_simulator.Trip_chain_simulator()
 ```
 
-次に、準備した設定ファイル・データファイルをオブジェクトに読み込ませます。
+次に、`read_input_data`メソッドを使い、準備した設定ファイル・データファイルをオブジェクトに読み込ませます。
 ```
 simulator.read_input_data("input settings.csv", "input od cost.csv", "input trip chain data.csv", "trip chain", "input initial parameter values.csv")
 ```
@@ -192,5 +192,19 @@ simulator.read_input_data("input settings.csv", "input od cost.csv", "input trip
 
 ### パラメータの推定
 
+パラメータの推定を行うには、`optimize_parameters`メソッドを使います。
+```
+simulator.optimize_parameters(1, 13, 130, 10, "output estimation result.csv")
+```
+このメソッドの引数は順に、適合度指標の評価に用いるシミュレーション回数、遺伝的アルゴリズムの一世代当たり個体数、遺伝的アルゴリズムにおける適合度指標の評価回数、パラメータ推定値の算出に用いる乱数系列の数、推定結果を出力するCSVファイルです。
 
-
+適合度指標$`F`$は以下のように定義されます。
+```math
+F = f_{X \setminus X^O} + \sum_{X \in X^O} f_{\bm{x}}
+```
+```math
+f_{\bm{x}} = m^o_{\bm{x}} \log \left( m^p_{\bm{x}} + \eta \right) - \left( m^p_{\bm{x}} + \eta \right)
+```
+```math
+f_{X \setminus X^O} = - \left( m^p_{X \setminus X^O} + \eta \right)
+```
