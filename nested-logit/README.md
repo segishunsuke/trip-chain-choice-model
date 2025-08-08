@@ -9,7 +9,7 @@ P_\mathrm{continue} = \frac { \exp \left( \gamma V_\mathrm{continue} \right) } {
 ```math
 V_\mathrm{continue} = \log \sum_{r \in K_{\mathrm{unvisited}}} \exp \left( \alpha_r - \beta \bar{c}_{\mathrm{current},r} \right)
 ```
-ここで、$`\mathrm{current}`$は現在地、$`\mathrm{departure}`$はトリップチェイン終点の空港、$`K_{\mathrm{unvisited}}`$は未訪問の観光地の集合です。
+ここで、$`\mathrm{current}`$は現在地、$`\mathrm{departure}`$はトリップチェイン終点の空港、$`K_{\mathrm{unvisited}}`$は未訪問の観光地の集合です。$`\gamma`$は$`0 < \gamma \le 1`$を満たすスケールパラメータです。
 
 ```math
 P_k = \frac { \exp \left( \alpha_k - \beta \bar{c}_{\mathrm{cur},k} \right) } { \sum_{r \in K_{\mathrm{unvisited}}} \exp \left( \alpha_r - \beta \bar{c}_{\mathrm{cur},r} \right)  }
