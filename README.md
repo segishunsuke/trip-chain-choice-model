@@ -62,7 +62,7 @@ python setup.py build_ext --inplace
 1列目は項目名，2列目は設定値です．
 項目の順序は変更できません．指定された順序を守って下さい．
 
-| Number of places | 10 |
+| Number of places | 11 |
 | :---: | :---: |
 | Number of ports | 2 |
 | Shift parameter of Poisson likelihood | 0.0001 |
@@ -90,9 +90,9 @@ OD間旅行費用のデータファイルは，観光地・空港間の旅行費
 
 | origin | destination | cost |
 | :---: | :---: | :---: |
-| 0 | 1 | 1.5 |
-| 0 | 2 | 3.0 |
-| 0 | 3 | 4.5 |
+| 0 | 1 | 1.0 |
+| 0 | 2 | 2.0 |
+| 0 | 3 | 3.0 |
 | $`\vdots`$ | $`\vdots`$ | $`\vdots`$ |
 
 特定のODペアがファイルに含まれていない場合，その旅行費用はゼロとして扱われます．
@@ -122,12 +122,12 @@ OD間旅行費用のデータファイルは，観光地・空港間の旅行費
 1列目は項目名，2列目は設定値です．
 項目の順序は変更できません．指定された順序を守って下さい．
 
-| alpha\[0\] | -0.5 |
+| alpha\[0\] | -1.0 |
 | :---: | :---: |
-| alpha\[1\] | -0.4 |
+| alpha\[1\] | 0.0 |
 | $`\vdots`$ | $`\vdots`$ |
-| alpha\[K-1\] | -0.5 |
-| beta | 5.0 |
+| alpha\[K-1\] | -1.0 |
+| beta | 7.0 |
 | sigma_t | 0.3 |
 
 各パラメータの意味を説明するために，このプログラムにおける旅行者のトリップチェイン選択モデルを紹介します．
@@ -167,8 +167,9 @@ $`\varepsilon_{k}`$と$`\xi_{k, l}`$は，平均が0の独立な正規分布に�
 ## プログラムの実行
 
 プログラムを使用する際は、`trip_chain_simulator.pyx`の置かれているフォルダをカレントディレクトリにして下さい。
-
 プログラムの実行方法は以下の通りです。
+
+### オブジェクトの作成とインプットファイルの読み込み
 
 まず、`trip_chain_simulator`をインポートします。
 
@@ -177,9 +178,17 @@ import trip_chain_simulator
 ```
 
 次に、`trip_chain_simulator`ライブラリの`Trip_chain_simulator`クラスのオブジェクトを作成します。
-このオブジェクトを用いて推定や予測を行います。
 ```
 simulator = trip_chain_simulator.Trip_chain_simulator()
 ```
+
+次に、準備した設定ファイル・データファイルをオブジェクトに読み込ませます。
+```
+simulator.read_input_data("input settings.csv", "input od cost.csv", "input trip chain data.csv", "trip chain", "input initial parameter values.csv")
+```
+このメソッドの引数は、順番に、設定ファイル名、OD間旅行費用のデータファイル名、
+
+### パラメータの推定
+
 
 
