@@ -240,7 +240,7 @@ simulator.print_statistics(100, "output summary trip chain.csv", "output summary
 
 シミュレーションはサンプル内の各旅行者について，仮想的なトリップチェインを生成する形で行います．
 
-予測に用いるシミュレーション回数には100を推奨します．`order_insensitive`は，訪問順序ではなく，訪問観光地の組み合わせのみに関心がある場合は`True`にして下さい．`count_unobserved`は，`True`にすると未観測・低頻度のトリップチェインが大量に出力されCSVが肥大化するため，`False`を推奨します．
+予測に用いるシミュレーション回数には100を推奨します．`order_insensitive`は，訪問順序ではなく，訪問観光地の組み合わせのみに関心がある場合に`True`にして下さい．`count_unobserved`は，`True`にすると未観測・低頻度のトリップチェインが大量に出力されCSVが肥大化するため，`False`を推奨します．
 
 出力ファイルは全てヘッダ付きCSVで，項目ごとに観測頻度と予測頻度が出力されます．
 
