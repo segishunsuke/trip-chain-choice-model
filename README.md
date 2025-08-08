@@ -12,7 +12,7 @@
 お使いのPython環境にCythonライブラリがインストールされていない場合は，プロンプト上で以下のコマンドを入力してインストールを行って下さい．
 
 ```
-pip install Cython
+pip install cython
 ```
 
 ### Windows環境の注意点
