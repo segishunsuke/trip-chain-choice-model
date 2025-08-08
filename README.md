@@ -200,10 +200,10 @@ simulator.optimize_parameters(1, 13, 130, 10, "output estimation result.csv")
 
 適合度指標$`F`$は以下のように定義されます。
 ```math
-F = f_{X \setminus X^O} + \sum_{X \in X^O} f_{\bm{x}}
+F = f_{X \setminus X^O} + \sum_{X \in X^O} f_{x}
 ```
 ```math
-f_{\bm{x}} = m^o_{\bm{x}} \log \left( m^p_{\bm{x}} + \eta \right) - \left( m^p_{\bm{x}} + \eta \right)
+f_{x} = m^o_{x} \log \left( m^p_{x} + \eta \right) - \left( m^p_{x} + \eta \right)
 ```
 ```math
 f_{X \setminus X^O} = - \left( m^p_{X \setminus X^O} + \eta \right)
