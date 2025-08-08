@@ -167,9 +167,11 @@ $`\varepsilon_{k}`$と$`\xi_{k, l}`$は，平均が0の独立な正規分布に�
 ## プログラムの実行
 
 プログラムを使用する際は、`trip_chain_simulator.pyx`の置かれているフォルダをカレントディレクトリにして下さい。
-プログラムの実行方法は以下の通りです。
+プログラムの実行方法は以下の通りです。紹介するコードは全て`execute.py`に記載されています。
 
 ### オブジェクトの作成とインプットファイルの読み込み
+
+モデルの推定および予測のいずれの場合も、オブジェクトの作成とインプットファイルの読み込みが必要です。
 
 まず、`trip_chain_simulator`をインポートします。
 
@@ -186,7 +188,7 @@ simulator = trip_chain_simulator.Trip_chain_simulator()
 ```
 simulator.read_input_data("input settings.csv", "input od cost.csv", "input trip chain data.csv", "trip chain", "input initial parameter values.csv")
 ```
-このメソッドの引数は、順番に、設定ファイル名、OD間旅行費用のデータファイル名、
+このメソッドの引数は順に、設定ファイル、OD間旅行費用のデータファイル、トリップチェインのデータファイル、データファイル内のトリップチェイン列名、パラメータ値の設定ファイルです。
 
 ### パラメータの推定
 
