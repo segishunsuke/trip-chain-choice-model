@@ -15,3 +15,6 @@ V_\mathrm{continue} = \log \sum_{l \in K_{\mathrm{unvisited}}} \exp \left( \alph
 ```math
 P_k = \frac { \exp \left( \alpha_k - \beta \bar{c}_{\mathrm{current},k} \right) } { \sum_{l \in K_{\mathrm{unvisited}}} \exp \left( \alpha_l - \beta \bar{c}_{\mathrm{current},l} \right)  }
 ```
+
+プログラムのコンパイル方法、インプットファイルの準備方法、プログラムの使用方法は、親フォルダの観光周遊モデルのものとほぼ同じです。以下に相違点のみ記載します。
+
