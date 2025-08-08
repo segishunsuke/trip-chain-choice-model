@@ -259,4 +259,4 @@ simulator.print_fitness_of_multiple_cases(1, 100, "output fitness.csv")
 
 ## 比較用のNested Logitモデル
 
-以上の観光周遊行動モデルとの比較用に、トリップチェイン全体の効用を考えず、近視眼的に行動する旅行者を表現したNested Logitモデルを扱うプログラムを、[nested-logitフォルダ](./nested-logit)に公開しています。
+観光周遊行動モデルとの比較用として、トリップチェイン全体の効用を考慮せず近視眼的に行動する旅行者を表現したNested Logitモデルのプログラムを、[nested-logitフォルダ](./nested-logit)に公開しています。
