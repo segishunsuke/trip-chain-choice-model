@@ -257,3 +257,6 @@ simulator.print_fitness_of_multiple_cases(1, 100, "output fitness.csv")
 ```
 このメソッドの引数は順に、適合度指標評価用のシミュレーション回数、用いる乱数系列数、評価結果出力用CSVファイル名です。出力CSVには、乱数系列ごとの適合度指標、およびその標本平均と標本標準偏差が記録されます。
 
+## 比較用のNested Logitモデル
+
+以上の観光周遊行動モデルとの比較用に、トリップチェイン全体の効用を考えず、近視眼的に行動する旅行者を表現したNested Logitモデルを扱うプログラムを、[nested-logitフォルダ](./nested-logit)に公開しています。
