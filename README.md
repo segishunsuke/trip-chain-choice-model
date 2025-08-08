@@ -200,7 +200,7 @@ simulator.optimize_parameters(1, 13, 130, 10, "output estimation result.csv")
 
 適合度指標$`F`$は以下のように定義されます。
 ```math
-F = f_{X \setminus X^O} + \sum_{X \in X^O} f_{x}
+F = f_{X \setminus X^O} + \sum_{x \in X^O} f_{x}
 ```
 ```math
 f_{x} = m^o_{x} \log \left( m^p_{x} + \eta \right) - \left( m^p_{x} + \eta \right)
@@ -208,3 +208,19 @@ f_{x} = m^o_{x} \log \left( m^p_{x} + \eta \right) - \left( m^p_{x} + \eta \righ
 ```math
 f_{X \setminus X^O} = - \left( m^p_{X \setminus X^O} + \eta \right)
 ```
+ここで、$`X`$は全トリップチェインの集合、$`X^O`$は観測されたトリップチェインの集合、$`m^o_{x}`$はトリップチェイン$`x`$の頻度の観測値、$`m^p_{x}`$はトリップチェイン$`x`$の頻度の予測値、$`m^p_{X \setminus X^O}`$は未観測トリップチェインの合計予測頻度、$`eta`$は設定ファイルの`Shift parameter of Poisson likelihood`で設定される数値です。この適合度指標はポアソン疑似対数尤度に基づいています。$`m^p_{x}`$の評価はモンテカルロシミュレーションにより行われます。
+
+適合度指標の評価に用いるシミュレーション回数には1を、遺伝的アルゴリズムの一世代当たり個体数には推定するパラメータの個数（$`K+2`$）を、遺伝的アルゴリズムにおける適合度指標の評価回数には一世代当たり個体数の10倍を、パラメータ推定値の算出に用いる乱数系列の数には10を推奨します。
+
+推定結果を出力したCSVファイルは、以下のような構造を取ります。
+
+|       | median | Solution_0 | Solution_1 | $`\cdots`$ | Solution_9 |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| alpha\[0\] | X | X | X | $`\cdots`$ | X |
+| alpha\[1\] | X | X | X | $`\cdots`$ | X |
+| $`\vdots`$ | $`\vdots`$ | $`\vdots`$ | $`\vdots`$ | $`\vdots`$ | $`\vdots`$ |
+| alpha\[K-1\] | X | X | X | $`\cdots`$ | X |
+| alpha\[K-1\] | X | X | X | $`\cdots`$ | X |
+| beta | X | X | X | $`\cdots`$ | X |
+| sigma_t | X | X | X | $`\cdots`$ | X |
+| fitness |  | X | X | $`\cdots`$ | X |
