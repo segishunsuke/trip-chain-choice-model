@@ -198,6 +198,8 @@ simulator.optimize_parameters(1, 13, 130, 10, "output estimation result.csv")
 ```
 このメソッドの引数は順に、適合度指標評価用のシミュレーション回数、遺伝的アルゴリズムの一世代当たり個体数、同アルゴリズムでの適合度指標評価回数、パラメータ推定値算出に用いる乱数系列数、推定結果出力用CSVファイル名です。
 
+シミュレーションでは、サンプル内の各旅行者について仮想的なトリップチェインを生成します。全旅行者分のチェイン生成を1回のシミュレーションと数えます。
+
 適合度指標$`F`$は以下のように定義されます。
 ```math
 F = f_{X \setminus X^O} + \sum_{x \in X^O} f_{x}
@@ -208,7 +210,7 @@ f_{x} = m^o_{x} \log \left( m^p_{x} + \eta \right) - \left( m^p_{x} + \eta \righ
 ```math
 f_{X \setminus X^O} = - \left( m^p_{X \setminus X^O} + \eta \right)
 ```
-ここで、$`X`$は全トリップチェインの集合、$`X^O`$は観測されたトリップチェインの集合、$`m^o_{x}`$はトリップチェイン$`x`$の頻度の観測値、$`m^p_{x}`$はトリップチェイン$`x`$の頻度の予測値、$`m^p_{X \setminus X^O}`$は未観測トリップチェインの合計予測頻度、$`eta`$は設定ファイルで指定する`Shift parameter of Poisson likelihood`の値です。この適合度指標はポアソン疑似対数尤度に基づいています。$`m^p_{x}`$の評価はモンテカルロシミュレーションにより行われます。
+ここで、$`X`$は全トリップチェインの集合、$`X^O`$は観測されたトリップチェインの集合、$`m^o_{x}`$はトリップチェイン$`x`$の頻度の観測値、$`m^p_{x}`$はトリップチェイン$`x`$の頻度の予測値、$`m^p_{X \setminus X^O}`$は未観測トリップチェインの合計予測頻度、$`eta`$は設定ファイルで指定する`Shift parameter of Poisson likelihood`の値です。この適合度指標はポアソン疑似対数尤度に基づいています。$`m^p_{x}`$は、シミュレーションで得られた頻度をシミュレーション回数で割って評価します。
 
 推奨設定は次の通りです：シミュレーション回数=1、一世代当たり個体数=$`K+2`$、評価回数=一世代当たり個体数×10、乱数系列数=10。
 
@@ -230,7 +232,7 @@ f_{X \setminus X^O} = - \left( m^p_{X \setminus X^O} + \eta \right)
 
 ### 旅行者の行動予測
 
-旅行者の行動予測を行うには、`print_statistics`メソッドを使います。
+旅行者の行動予測を行うには、`print_statistics`メソッドを使います。行動予測に用いるパラメータを設定ファイルで与える場合には、パラメータ推定を行う必要はありません。
 ```
 simulator.print_statistics(100, "output summary trip chain.csv", "output summary od freq.csv", "output summary visits.csv", order_insensitive = False, count_unobserved = False)
 ```
@@ -242,5 +244,16 @@ simulator.print_statistics(100, "output summary trip chain.csv", "output summary
 
 出力ファイルは全てヘッダ付きCSVで、項目ごとに観測頻度と予測頻度が出力されます。
 
+### その他の機能
 
+旅行者の行動予測に用いる乱数系列の種を指定したい場合には、`set_random_seed`メソッドを使います。乱数系列の種はlong int型の数値で指定して下さい。
+```
+simulator.set_random_seed(0)
+```
+
+特定のパラメータ値で適合度を詳細に評価する場合は、`print_fitness_of_multiple_cases`メソッドを使います。
+```
+simulator.print_fitness_of_multiple_cases(1, 100, "output fitness.csv")
+```
+このメソッドの引数は順に、適合度指標評価用のシミュレーション回数、用いる乱数系列数、評価結果出力用CSVファイル名です。出力CSVには、乱数系列ごとの適合度指標、およびその標本平均と標本標準偏差が記録されます。
 
